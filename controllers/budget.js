@@ -17,9 +17,9 @@ const {
 async function displayTotalBudget() {
   try {
     let totalBudget = await getTotalBudget();
-    totalBudget = new Intl.NumberFormat("en-CAD", {
+    totalBudget = new Intl.NumberFormat("en-USD", {
       style: "currency",
-      currency: "CAD"
+      currency: "USD"
     }).format(totalBudget);
     const footer = displayHeadline(`Total Budget`);
     displayResults(`Total Budget: ${totalBudget}`);
@@ -50,12 +50,12 @@ async function displayTotalDepartmentBudget() {
     let totalDepartmentBudget = await getTotalBudgetByDepartment(departmentID);
 
     if (totalDepartmentBudget) {
-      totalDepartmentBudget = new Intl.NumberFormat("en-CAD", {
+      totalDepartmentBudget = new Intl.NumberFormat("en-USD", {
         style: "currency",
-        currency: "CAD"
+        currency: "USD"
       }).format(totalDepartmentBudget);
     } else {
-      totalDepartmentBudget = `CA$0.00`;
+      totalDepartmentBudget = `$0.00`;
     }
     const footer = displayHeadline(`${department.name} Total Budget`);
     displayResults(`${department.name} Total Budget: ${totalDepartmentBudget}`);
